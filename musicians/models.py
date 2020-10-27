@@ -8,6 +8,11 @@ class Musician(models.Model):
     instrumento = models.CharField(max_length=255)
 
 
+class Bio(models.Model):
+    musician = models.OneToOneField(Musician, on_delete=models.CASCADE)
+    hometown = models.CharField(max_length=255)
+
+
 class Album(models.Model):
     name = models.CharField(max_length=255)
     musician = models.ForeignKey(Musician, on_delete=models.CASCADE)
